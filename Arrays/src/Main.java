@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        int myVariable = 50;
+        int[] myIntArray = new int[10];
+        myIntArray[5] = 50;
     }
 }
