@@ -7,21 +7,30 @@ public class GroceryList {
         groceryList.add(item);
     }
 
-    public void modifyGroceryItem(int position, String newItem) {
-        groceryList.set(position, newItem);
-        System.out.println("Grocery item " + (position + 1) + " has been modified");
+    public void modifyGroceryItem(String oldItem, String newItem) {
+        int position = findItem(oldItem);
+        if (position >= 0) modifyGroceryItem(position, newItem);
     }
 
-    public void removeGroceryItem(int position) {
+    private void modifyGroceryItem(int position, String newItem) {
+        groceryList.set(position, newItem);
+        System.out.println("Item has been changed to " + newItem + " has been modified");
+    }
+
+    public void removeGroceryItem(String item) {
+        int position = findItem(item);
+        if (position >= 0) removeGroceryItem(position);
+        else System.out.println(item + " is not in the list");
+    }
+
+    private void removeGroceryItem(int position) {
         String item = groceryList.get(position);
         groceryList.remove(position);
         System.out.println(item + " has been removed");
     }
 
-    public String findItem(String searchItem) {
-        int position = groceryList.indexOf(searchItem);
-        if (position >= 0) return groceryList.get(position);
-        return null;
+    public int findItem(String searchItem) {
+        return groceryList.indexOf(searchItem);
     }
 
     public void printGroceryList() {

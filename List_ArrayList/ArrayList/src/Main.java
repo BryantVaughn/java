@@ -56,25 +56,23 @@ public class Main {
     }
 
     public static void modifyItem() {
-        System.out.print("Enter item number: ");
-        int itemNumber = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("Enter replacement item: ");
+        System.out.print("Enter item that you want to replace: ");
+        String oldItem = scanner.nextLine();
+        System.out.print("Enter new item: ");
         String newItem = scanner.nextLine();
-        gl.modifyGroceryItem(itemNumber - 1, newItem);
+        gl.modifyGroceryItem(oldItem, newItem);
     }
 
     public static void removeItem() {
-        System.out.print("Enter item number to be removed: ");
-        int itemNumber = scanner.nextInt();
-        scanner.nextLine();
-        gl.removeGroceryItem(itemNumber - 1);
+        System.out.print("Enter item to be removed: ");
+        String item = scanner.nextLine();
+        gl.removeGroceryItem(item);
     }
 
     public static void searchForItem() {
         System.out.print("Enter item to search for: ");
         String searchItem = scanner.nextLine();
-        if (gl.findItem(searchItem) != null) {
+        if (gl.findItem(searchItem) >= 0) {
             System.out.println("Found " + searchItem + " in our grocery list.");
         }
         else {
