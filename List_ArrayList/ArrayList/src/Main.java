@@ -72,7 +72,7 @@ public class Main {
     public static void searchForItem() {
         System.out.print("Enter item to search for: ");
         String searchItem = scanner.nextLine();
-        if (gl.findItem(searchItem) >= 0) {
+        if (gl.onFile(searchItem)) {
             System.out.println("Found " + searchItem + " in our grocery list.");
         }
         else {

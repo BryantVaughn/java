@@ -29,8 +29,13 @@ public class GroceryList {
         System.out.println(item + " has been removed");
     }
 
-    public int findItem(String searchItem) {
+    private int findItem(String searchItem) {
         return groceryList.indexOf(searchItem);
+    }
+
+    public boolean onFile(String searchItem) {
+        int position = findItem(searchItem);
+        return position >= 0;
     }
 
     public void printGroceryList() {
